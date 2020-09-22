@@ -20,12 +20,12 @@ func (o *Object) Mount() {
 		log.Fatal("object: unable to initialize WebGL")
 	}
 
-	gl.Call("clearColor", 0.0, 0.0, 0.0, 1.0)
+	gl.Call("clearColor", 0.0, 0.0, 0.0, 0.0)
 	gl.Call("clear", gl.Get("COLOR_BUFFER_BIT"))
 }
 
 func (o *Object) Render() vecty.ComponentOrHTML {
 	return elem.Canvas(
-		vecty.Markup(vecty.Class("object"), prop.ID("object")),
+		vecty.Markup(vecty.Class("content__object"), prop.ID("object")),
 	)
 }

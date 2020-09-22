@@ -7,7 +7,7 @@ import (
 	"github.com/gopherjs/vecty/elem"
 	"github.com/gopherjs/vecty/event"
 	"github.com/gopherjs/vecty/prop"
-	"github.com/hahanein/geocity/frontend/caller"
+	"github.com/hahanein/geocity/frontend/rpc"
 	"github.com/hahanein/geocity/message"
 )
 
@@ -45,7 +45,9 @@ func (s *Setup) Render() vecty.ComponentOrHTML {
 			s.state = CallStatePending
 			vecty.Rerender(s)
 			var reply message.AuthReply
-			caller.Call("set_up", params, &reply)
+			if err := rpc.Call("set_up", params, &reply); err != nil {
+				log.Panic(err)
+			}
 			s.state = CallStateDone
 			vecty.Rerender(s)
 		}()

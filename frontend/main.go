@@ -1,17 +1,10 @@
 package main
 
 import (
-	"bytes"
-	"encoding/asn1"
-	"io/ioutil"
-	"log"
-	"net/http"
-
 	"syscall/js"
 
 	"github.com/gopherjs/vecty"
 	"github.com/gopherjs/vecty/elem"
-	"github.com/hahanein/geocity/frontend/caller"
 	"github.com/hahanein/geocity/frontend/components"
 )
 
@@ -23,10 +16,6 @@ func main() {
 type App struct {
 	vecty.Core
 	init bool
-}
-
-func (p *App) Unmount() {
-	caller.Unregister()
 }
 
 var css = `
@@ -74,24 +63,37 @@ br {
 	margin-top: 0;
 }
 
+a {
+	color: black;
+}
+
 ::selection {
 	background: black;
 }
 
 footer {
 	border-top: 2px solid black;
-	padding: 0.5rem;
 	background: white;
-	/* position: fixed;
-	left: 0;
-	bottom: 0;
-	width: 100%; */
 	position: sticky;
 	bottom: 0;
+	display: flex;
+	justify-content: space-between;
 }
 
-footer > div, footer > h3 {
+.footer__contact {
+	display: flex;
+	padding: 0.5rem;
+}
+
+.footer__contact__item {
 	margin-right: 1.5rem;
+	flex: 1 1 auto;
+}
+
+.footer__various {
+	border-left: 2px solid black;
+	padding: 0.5rem;
+	width: 25vw;
 }
 
 .footer_message {
@@ -102,15 +104,15 @@ footer > div, footer > h3 {
 	display: flex;
 }
 
-.content > div, .content > canvas {
+.content__object, .content__lorem-ipsum {
 	flex: 1 1 auto;
 }
 
-.object {
+.content__object {
 	padding: 0.5rem;
 }
 
-.lorem-ipsum {
+.content__lorem-ipsum {
 	border-left: 2px solid black;
 	padding: 0.5rem;
 	max-width: 25vw;
@@ -119,32 +121,6 @@ footer > div, footer > h3 {
 
 func (a *App) Mount() {
 	a.init = false
-
-	caller.Register(func(method string, params interface{}, reply interface{}) {
-		b, err := asn1.Marshal(params)
-		if err != nil {
-			log.Panic(err)
-		}
-
-		resp, err := http.Post(
-			"/api/"+method,
-			"application/octet-stream",
-			bytes.NewReader(b),
-		)
-		if err != nil {
-			log.Panic(err)
-		}
-
-		b, err = ioutil.ReadAll(resp.Body)
-		if err != nil {
-			log.Panic(err)
-		}
-
-		_, err = asn1.Unmarshal(b, reply)
-		if err != nil {
-			log.Panic(err)
-		}
-	})
 
 	Style := js.Global().Get("document").Call("createElement", "style")
 	Style.Set("innerHTML", css)

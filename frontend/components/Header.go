@@ -17,10 +17,6 @@ func (h *Header) Render() vecty.ComponentOrHTML {
 		),
 		elem.Heading1(
 			vecty.Text("benjamin westphal "),
-			// elem.Image(vecty.Markup(
-			// 	vecty.Style("max-height", "1.1rem"),
-			// 	prop.Src("/media/period.svg")),
-			// ),
 		),
 	)
 }

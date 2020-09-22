@@ -27,21 +27,6 @@ type AuthReply struct {
 	Token         string `asn1:"optional,ia5"`
 }
 
-type PutMessageRequest struct {
-	Email   string `asn1:"ia5"`
-	Message string `asn1:"ia5"`
-}
-
-type PutMessageReply struct {
-	StatusMessage `asn1:"optional,ia5"`
-}
-
-type GetContactRequest struct{}
-
-type GetContactReply struct {
-	List []string `asn1:"optional,sequence,ia5"`
-}
-
 type PutRequest struct {
 	Value  asn1.RawContent
 	Bucket string `asn1:"ia5"`
