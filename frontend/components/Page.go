@@ -21,6 +21,6 @@ func (p *Page) Render() vecty.ComponentOrHTML {
 			new(Object),
 			new(Stream),
 		),
-		new(Contact),
+		new(Footer),
 	)
 }

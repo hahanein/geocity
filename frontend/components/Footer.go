@@ -15,27 +15,27 @@ const (
 	CallStateDone
 )
 
-type Contact struct {
+type Footer struct {
 	vecty.Core
 	contactState int
 }
 
-func (c *Contact) Mount() {
-	c.contactState = CallStateReady
+func (f *Footer) Mount() {
+	f.contactState = CallStateReady
 
 	go func() {
-		c.contactState = CallStatePending
-		vecty.Rerender(c)
+		f.contactState = CallStatePending
+		vecty.Rerender(f)
 		var reply entity.Contact
 		if err := rest.Get("contact", &reply); err != nil {
 			log.Panic(err)
 		}
-		c.contactState = CallStateDone
-		vecty.Rerender(c)
+		f.contactState = CallStateDone
+		vecty.Rerender(f)
 	}()
 }
 
-func (f *Contact) Render() vecty.ComponentOrHTML {
+func (f *Footer) Render() vecty.ComponentOrHTML {
 	return elem.Footer(
 		elem.Div(
 			vecty.Markup(vecty.Class("footer__contact")),

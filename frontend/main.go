@@ -45,12 +45,19 @@ h1 {
 
 header {
 	border-bottom: 2px solid black;
-	width: 100%;
-	padding: 0.5rem;
-	background: white;
-	box-sizing: border-box;
 	position: sticky;
-	top: 0;
+	display: flex;
+}
+
+.header__title {
+	padding: 0.5rem;
+	flex: 1 1 auto;
+}
+
+.header__navigation {
+	border-left: 2px solid black;
+	width: calc(25vw - 1rem);
+	padding: 0.5rem;
 }
 
 button {
