@@ -22,6 +22,8 @@ var css = `
 @font-face {
 	font-family: 'SctoGroteskA';
 	src: url('/typeface/scto_grotesk_a_regular.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
 }
 
 * {
@@ -51,6 +53,11 @@ header {
 	top: 0;
 }
 
+button {
+	background: none;
+	border: none;
+}
+
 label {
 	display: none;
 }
@@ -65,6 +72,10 @@ br {
 
 a {
 	color: black;
+}
+
+ol {
+	padding-left: 1.2em;
 }
 
 ::selection {
@@ -92,7 +103,6 @@ footer {
 
 .footer__various {
 	border-left: 2px solid black;
-	padding: 0.5rem;
 	width: 25vw;
 }
 
@@ -104,19 +114,23 @@ footer {
 	display: flex;
 }
 
-.content__object, .content__lorem-ipsum {
-	flex: 1 1 auto;
-}
-
 .content__object {
 	padding: 0.5rem;
+	flex: 5 5 auto;
 }
 
-.content__lorem-ipsum {
+.content__stream {
 	border-left: 2px solid black;
+	width: 25vw;
+	height: calc(100vh - 10.4rem);
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+}
+
+.content__stream__item {
 	padding: 0.5rem;
-	max-width: 25vw;
-	min-height: 200vh;
+	border-top: 2px solid black;
 }`
 
 func (a *App) Mount() {

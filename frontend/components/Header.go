@@ -16,7 +16,7 @@ func (h *Header) Render() vecty.ComponentOrHTML {
 			vecty.Class("header"),
 		),
 		elem.Heading1(
-			vecty.Text("benjamin westphal "),
+			vecty.Text("benjamin"),
 		),
 	)
 }

@@ -13,12 +13,11 @@ func Put(resource string, v interface{}) error {
 		return err
 	}
 
-	_, err = http.NewRequest(
+	if _, err = http.NewRequest(
 		http.MethodPut,
 		"/api/"+resource,
 		bytes.NewReader(b),
-	)
-	if err != nil {
+	); err != nil {
 		return err
 	}
 
@@ -36,8 +35,7 @@ func Get(resource string, v interface{}) error {
 		return err
 	}
 
-	_, err = asn1.Unmarshal(bs, v)
-	if err != nil {
+	if _, err = asn1.Unmarshal(bs, v); err != nil {
 		return err
 	}
 

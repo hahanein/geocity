@@ -19,7 +19,7 @@ func (p *Page) Render() vecty.ComponentOrHTML {
 				vecty.Class("content"),
 			),
 			new(Object),
-			new(LoremIpsum),
+			new(Stream),
 		),
 		new(Contact),
 	)
