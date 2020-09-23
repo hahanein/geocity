@@ -39,7 +39,7 @@ func (s *Stream) Render() vecty.ComponentOrHTML {
 					),
 				),
 				elem.Break(),
-				elem.Paragraph(vecty.Text("Aufgenommen irgendwo in Berlin vom 19.5.2019 bis zur Unterbrechung.")),
+				elem.Paragraph(vecty.Text("Aufgenommen irgendwo in Berlin vom 19.5.19 bis zur Unterbrechung.")),
 			),
 			elem.Break(),
 			List,

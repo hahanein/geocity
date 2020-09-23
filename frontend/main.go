@@ -44,7 +44,6 @@ h1 {
 }
 
 header {
-	border-bottom: 2px solid black;
 	position: sticky;
 	display: flex;
 }
@@ -55,7 +54,6 @@ header {
 }
 
 .header__navigation {
-	border-left: 2px solid black;
 	width: calc(25vw - 1rem);
 	padding: 0.5rem;
 }
@@ -90,7 +88,6 @@ ol {
 }
 
 footer {
-	border-top: 2px solid black;
 	background: white;
 	position: sticky;
 	bottom: 0;
@@ -109,7 +106,6 @@ footer {
 }
 
 .footer__various {
-	border-left: 2px solid black;
 	width: 25vw;
 }
 
@@ -127,7 +123,6 @@ footer {
 }
 
 .content__stream {
-	border-left: 2px solid black;
 	width: 25vw;
 	height: calc(100vh - 10.4rem);
 	display: flex;
@@ -137,7 +132,6 @@ footer {
 
 .content__stream__item {
 	padding: 0.5rem;
-	border-top: 2px solid black;
 }`
 
 func (a *App) Mount() {
