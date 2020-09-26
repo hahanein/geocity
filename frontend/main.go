@@ -35,27 +35,7 @@ var css = `
 
 body {
 	font-family: 'SctoGroteskA', sans-serif;
-	/* background: #FFF7C7; */
 	-webkit-font-smoothing: antialiased;
-}
-
-h1 {
-	/* font-size: 1.8rem; */
-}
-
-header {
-	position: sticky;
-	display: flex;
-}
-
-.header__title {
-	padding: 0.5rem;
-	flex: 1 1 auto;
-}
-
-.header__navigation {
-	width: calc(25vw - 1rem);
-	padding: 0.5rem;
 }
 
 button {
@@ -87,51 +67,47 @@ ol {
 	background: black;
 }
 
-footer {
-	background: white;
-	position: sticky;
-	bottom: 0;
-	display: flex;
-	justify-content: space-between;
-}
-
-.footer__contact {
-	display: flex;
+#root {
+	box-sizing: border-box;
 	padding: 0.5rem;
+	width: 100vw;
+	height: 100vh;
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(min(10rem, 100%), 1fr));
+	grid-template-rows: repeat(auto-fill, minmax(min(10rem, 100%), 1fr));
+	grid-gap: 0.5rem;
 }
 
-.footer__contact__item {
-	margin-right: 1.5rem;
-	flex: 1 1 auto;
+#title {
+	grid-row-start: 1;
 }
 
-.footer__various {
-	width: 25vw;
+#route__current {
+	grid-row-start: 1;
+	grid-column-start: -3;
+	grid-column-end: span 2;
 }
 
-.footer_message {
-	resize: none;
+#contact__heading {
+	grid-row-start: -2;
 }
 
-.content {
-	display: flex;
+#contact__info {
+	grid-column-end: span 2;
+	grid-row-start: -2;
 }
 
-.content__object {
-	padding: 0.5rem;
-	flex: 5 5 auto;
+#object {
+	grid-row-start: 2;
 }
 
-.content__stream {
-	width: 25vw;
-	height: calc(100vh - 10.4rem);
+#stream {
 	display: flex;
 	flex-direction: column;
 	justify-content: flex-end;
-}
-
-.content__stream__item {
-	padding: 0.5rem;
+	grid-row-start: -3;
+	grid-column-start: -3;
+	grid-column-end: span 2;
 }`
 
 func (a *App) Mount() {

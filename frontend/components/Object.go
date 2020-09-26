@@ -12,6 +12,6 @@ type Object struct {
 
 func (o *Object) Render() vecty.ComponentOrHTML {
 	return elem.Div(
-		vecty.Markup(vecty.Class("content__object"), prop.ID("object")),
+		vecty.Markup(prop.ID("object")),
 	)
 }

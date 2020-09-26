@@ -26,9 +26,9 @@ func (s *Stream) Render() vecty.ComponentOrHTML {
 	List := elem.OrderedList(Items...)
 
 	return elem.Div(
-		vecty.Markup(vecty.Class("content__stream")),
+		vecty.Markup(prop.ID("stream")),
 		elem.Div(
-			vecty.Markup(vecty.Class("content__stream__item")),
+			vecty.Markup(vecty.Class("stream__item")),
 			elem.Div(
 				elem.Heading2(vecty.Text("Unbenannt")),
 				elem.Heading3(

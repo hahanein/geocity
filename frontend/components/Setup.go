@@ -11,6 +11,12 @@ import (
 	"github.com/hahanein/geocity/message"
 )
 
+const (
+	CallStateDone = iota
+	CallStatePending
+	CallStateReady
+)
+
 // Setup is our set up component when
 type Setup struct {
 	vecty.Core
