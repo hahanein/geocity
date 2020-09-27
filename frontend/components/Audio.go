@@ -45,9 +45,7 @@ func (a *Audio) Render() vecty.ComponentOrHTML {
 
 	var Title []vecty.MarkupOrChild
 	if a.duration == nil {
-		Title = []vecty.MarkupOrChild{
-			vecty.Text(a.title),
-		}
+		Title = []vecty.MarkupOrChild{vecty.Text(a.title)}
 	} else {
 		playPauseListener := &vecty.EventListener{
 			Name: "click",

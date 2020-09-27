@@ -12,6 +12,10 @@ type Stream struct {
 
 func (s *Stream) Render() vecty.ComponentOrHTML {
 	var Items []vecty.MarkupOrChild
+	Items = append(Items, vecty.Markup(
+		vecty.Style("list-style-type", "none"),
+		vecty.Style("padding-left", "0"),
+	))
 
 	for _, url := range []string{
 		"https://github.com/hahanein/ep1/blob/master/01_UNBENANNT_0280.mp3?raw=true",
@@ -29,6 +33,8 @@ func (s *Stream) Render() vecty.ComponentOrHTML {
 		vecty.Markup(prop.ID("stream")),
 		elem.Div(
 			vecty.Markup(vecty.Class("stream__item")),
+			List,
+			elem.Break(),
 			elem.Div(
 				elem.Heading2(vecty.Text("Unbenannt")),
 				elem.Heading3(
@@ -39,16 +45,14 @@ func (s *Stream) Render() vecty.ComponentOrHTML {
 					),
 				),
 				elem.Break(),
-				elem.Paragraph(vecty.Text("Aufgenommen irgendwo in Berlin vom 19. Mai ’19 bis zur Unterbrechung.")),
+				elem.Paragraph(vecty.Text("Aufgenommen in der Schnellerstr. 1 in Berlin vom 19. Mai ’19 bis zur Unterbrechung.")),
 			),
-			elem.Break(),
-			List,
-			elem.Div(
-				elem.Break(),
-				vecty.Text("Notorische Ruhestörung: Stimme, Schlagzeug"),
-				elem.Break(),
-				vecty.Text("Benjamin: Stimme, Gitarre, Weckglas"),
-			),
+			// elem.Div(
+			// 	elem.Break(),
+			// 	vecty.Text("Notorische Ruhestörung: Stimme, Schlagzeug"),
+			// 	elem.Break(),
+			// 	vecty.Text("Benjamin: Stimme, Gitarre, Weckglas"),
+			// ),
 		),
 	)
 }

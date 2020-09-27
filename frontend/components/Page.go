@@ -19,17 +19,17 @@ func (p *Page) Render() vecty.ComponentOrHTML {
 		),
 		elem.Heading1(
 			vecty.Markup(prop.ID("title")),
-			vecty.Text("benjamin westphal"),
+			vecty.Text("Benjamin Westphal"),
 		),
 		elem.Div(
 			vecty.Markup(prop.ID("route__current")),
-			vecty.Text("bild und ton"),
+			vecty.Text("Bild und Ton"),
 		),
 		new(Object),
 		new(Stream),
 		elem.Heading3(
 			vecty.Markup(prop.ID("contact__heading")),
-			vecty.Text("kontakt"),
+			vecty.Text("Kontakt"),
 		),
 		elem.Div(
 			vecty.Markup(prop.ID("contact__info")),

@@ -69,13 +69,13 @@ ol {
 
 #root {
 	box-sizing: border-box;
-	padding: 0.5rem;
+	padding: 0.55rem;
 	width: 100vw;
 	height: 100vh;
 	display: grid;
-	grid-template-columns: repeat(auto-fill, minmax(min(5rem, 100%), 1fr));
-	grid-template-rows: repeat(auto-fill, minmax(min(5rem, 100%), 1fr));
-	grid-gap: 0.5rem;
+	grid-template-columns: repeat(auto-fill, minmax(min(5.5rem, 100%), 1fr));
+	grid-template-rows: repeat(auto-fill, minmax(min(5.5rem, 100%), 1fr));
+	grid-gap: 0.55rem;
 }
 
 #title {
@@ -84,10 +84,33 @@ ol {
 	grid-column-end: span2;
 }
 
-#route__current {
-	grid-row-start: 1;
-	grid-column-start: -5;
-	grid-column-end: span 4;
+@media only screen and (max-width: 767px) {
+	#route__current {
+		grid-row-start: 1;
+		grid-column-start: 3;
+		grid-column-end: span 4;
+	}
+
+	#stream {
+		grid-row-start: -3;
+		grid-column-start: 1;
+		grid-column-end: span 4;
+		padding-bottom: 1.1rem;
+	}
+}
+
+@media only screen and (min-width: 768px) {
+	#route__current {
+		grid-row-start: 1;
+		grid-column-start: -5;
+		grid-column-end: span 4;
+	}
+
+	#stream {
+		grid-row-start: -3;
+		grid-column-start: -5;
+		grid-column-end: span 4;
+	}
 }
 
 #contact__heading {
@@ -109,9 +132,6 @@ ol {
 	display: flex;
 	flex-direction: column;
 	justify-content: flex-end;
-	grid-row-start: -3;
-	grid-column-start: -5;
-	grid-column-end: span 4;
 }`
 
 func (a *App) Mount() {
