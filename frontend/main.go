@@ -73,27 +73,31 @@ ol {
 	width: 100vw;
 	height: 100vh;
 	display: grid;
-	grid-template-columns: repeat(auto-fill, minmax(min(10rem, 100%), 1fr));
-	grid-template-rows: repeat(auto-fill, minmax(min(10rem, 100%), 1fr));
+	grid-template-columns: repeat(auto-fill, minmax(min(5rem, 100%), 1fr));
+	grid-template-rows: repeat(auto-fill, minmax(min(5rem, 100%), 1fr));
 	grid-gap: 0.5rem;
 }
 
 #title {
 	grid-row-start: 1;
+	grid-column-start: 1;
+	grid-column-end: span2;
 }
 
 #route__current {
 	grid-row-start: 1;
-	grid-column-start: -3;
-	grid-column-end: span 2;
+	grid-column-start: -5;
+	grid-column-end: span 4;
 }
 
 #contact__heading {
+	grid-column-start: 1;
 	grid-row-start: -2;
 }
 
 #contact__info {
-	grid-column-end: span 2;
+	grid-column-start: 2;
+	grid-column-end: span 3;
 	grid-row-start: -2;
 }
 
@@ -106,8 +110,8 @@ ol {
 	flex-direction: column;
 	justify-content: flex-end;
 	grid-row-start: -3;
-	grid-column-start: -3;
-	grid-column-end: span 2;
+	grid-column-start: -5;
+	grid-column-end: span 4;
 }`
 
 func (a *App) Mount() {
