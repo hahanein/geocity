@@ -119,7 +119,13 @@ func (a *App) Mount() {
 
 	Style := js.Global().Get("document").Call("createElement", "style")
 	Style.Set("innerHTML", css)
+
+	Viewport := js.Global().Get("document").Call("createElement", "meta")
+	Viewport.Set("name", "viewport")
+	Viewport.Set("content", "width=device-width, initial-scale=1")
+
 	js.Global().Get("document").Call("getElementsByTagName", "head").Index(0).Call("appendChild", Style)
+	js.Global().Get("document").Call("getElementsByTagName", "head").Index(0).Call("appendChild", Viewport)
 
 	evtSource := js.Global().Get("EventSource").New("/api/events")
 	evtSource.Call("addEventListener", "init", js.FuncOf(func(this js.Value, args []js.Value) interface{} {
